@@ -14,7 +14,7 @@
 
   <div class="ui equal width center aligned padded grid">
     <div class="row"></div>
-    <div class="row"><img src="img/fastfood.png" class="image" alt="Fastfood"></div>
+    <div class="row"><img src="img/icon.png" class="image" alt="Fastfood"></div>
     <div class="row">
       <div class="column">
         <form action="verificalogin.php" class="ui form" id="form-login" method="post">
