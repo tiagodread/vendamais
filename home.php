@@ -1,4 +1,7 @@
 <?php
 session_start();
-session_destroy();
+
+echo($_SESSION['nome_usuario'] . "<br>" . $_SESSION['senha_usuario']);
+
+
 ?>

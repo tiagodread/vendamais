@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
   <script src="semantic/dist/jquery-3.1.0.min.js"></script>
   <script src="semantic/dist/semantic.min.js"></script>
+  <script src="semantic/dist/script.js"></script>
 </head>
 
 <body>
@@ -27,13 +28,14 @@
                   <div class="field">
                     <div class="ui left icon input">
                       <i class="user icon"></i>
-                      <input type="text" name="email" placeholder="E-mail">
+                      <input type="text" name="email" placeholder="E-mail" id="email" required>
                     </div>
                   </div>
                   <div class="field">
                     <div class="ui left icon input">
                       <i class="lock icon"></i>
-                      <input type="password" name="senha" placeholder="Senha">
+                      <input type="password" name="senha" placeholder="Senha" id="senha" required>
+                      <input type="hidden" id="metodo" value="formajax">
                     </div>
                   </div>
 
@@ -41,7 +43,7 @@
               </div>
             </div>
             <div class="extra content" align="center">
-              <div class="ui fluid large teal submit button">Login</div>
+              <button class="ui fluid large teal submit button" id="btlogin">Login</button>
               <div class="content">
                 Não possui cadastro? Cadastre-se <a href="cadastrar.php">aqui</a>
               </div>
@@ -52,30 +54,15 @@
     </div>
     <div class="row"></div>
 
-    <script type="text/javascript">
-      $(function(){
-        $('#form-login').form({
-          email : {
-            identifier : 'email',
-            rules : [
-            {
-              type : 'email',
-              prompt : 'Preencha o campo com o nome de usuário.'
-            }
-            ]
-          },
-          senha : {
-            identifier : 'senha',
-            rules : [{
-              type : 'empty',
-              prompt : 'A senhad deve conter no minimo 8 caracteres.'
-            }]
-          }
-        });
-      });
-    </script>
-  </body>
+    <div class="erro" id="erro">
+     <div class="ui error message">
+       Preencha o email e a senha!
+
+     </div>
 
 
-  </html>
+   </body>
+
+
+   </html>
 
