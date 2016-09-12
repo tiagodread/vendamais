@@ -20,4 +20,28 @@ $('document').ready(function(){
       }]
     }
   });
+  
+  $('.ui.dropdown')
+  .dropdown();
+
+  $('.tabular .attached')
+  .tab();
+
+  $("#Celular").mask("(99) 99999-9999");
+  $("#Telefone").mask("(99) 9999-9999");
+  $("#CPF").mask("999.999.999-99");
+  $("#RG").mask("99.999.999-9");
+
+
+
+//$('form-add-cliente').form('clear')
+
+$(document).ready(function(){
+  $('.menu .item').tab();
+});
+
+$('#teste').click(function(){
+  $('.ui.sidebar')
+  .sidebar('toggle');
+});
 });
