@@ -11,39 +11,38 @@ if (isset($_SESSION['validacao'])) {
 
 	<!-- Inicio da primeira tab cadastro-->
 	<div class="ui bottom attached tab segment active" data-tab="cadastrar">
-		<form class="ui form" id="form-add-cliente" method="post">
+		<form class="ui form" id="form-add-cliente" method="post" action="gravar_registro.php">
 			<h4 class="ui dividing header">Informações Cadastrais</h4>
-
 			<div class="ui grid">
 				<div class="eight wide column">
 					<div class="field">
-						<label>Nome</label>
+						<label>Nome *</label>
 						<input type="text" name="nome" placeholder="Nome" required>
 					</div>
 				</div>
 				<div class="four wide column">
 					<div class="field">
-						<label for="cpf">CPF</label>
+						<label for="cpf">CPF *</label>
 						<input type="text" name="cpf" id="CPF" placeholder="CPF" required>
 					</div>
 				</div>
 				<div class="four wide column">
 					<div class="field">
-						<label for="rg">RG</label>
+						<label for="rg">RG *</label>
 						<input type="text" name="rg" id="RG" placeholder="RG" required>
 					</div>
 				</div>
 				<div class="four wide column">
 					<div class="field">
-						<label>Data de Nascimento</label>
+						<label>Data de Nascimento *</label>
 						<input type="date" name="nascimento" placeholder="xx/xx/xxxx" required>
 					</div>
 				</div>
 				<div class="four wide column">
 					<div class="field">
-						<label for="sexo">Sexo</label>
+						<label for="sexo">Sexo *</label>
 						<div class="ui selection dropdown">
-							<input type="hidden" name="genero">
+							<input type="hidden" name="genero" required>
 							<i class="dropdown icon"></i>
 							<div class="default text">Selecione</div>
 							<div class="menu">
@@ -55,45 +54,46 @@ if (isset($_SESSION['validacao'])) {
 				</div>
 				<div class="eight wide column">
 					<div class="field">
-						<label>Profissão</label>
-						<input type="text" name="profissao" placeholder="Profissão">
+						<label>Profissão *</label>
+						<input type="text" name="profissao" placeholder="Profissão" required>
 					</div>
 				</div>
 				<div class="four wide column">
-					<label for="telefone">Telefone</label>
+					<label>Telefone</label>
 					<input type="text" name="telefone" id="Telefone" placeholder="(xx) xxxx-xxxx">
 				</div>
 				<div class="four wide column">
-					<label for="telefone">Celular</label>
-					<input type="text" name="celular" id="Celular" placeholder="(xx) xxxxx-xxxx">
+					<label>Celular *</label>
+					<input type="text" name="celular" id="Celular" placeholder="(xx) xxxxx-xxxx" required>
 				</div>
 				<div class="eight wide column">
 					<label for="email">Email</label>
 					<input type="email" name="email" placeholder="exemplo@dominio.com">
 				</div>
 				<div class="four wide column">
-					<label for="endereço">Endereço</label>
-					<input type="text" name="endereco" placeholder="Endereço">
+					<label for="endereço">Endereço *</label>
+					<input type="text" name="endereco" placeholder="Endereço" required>
 				</div>
 				<div class="three wide column">
-					<label for="cidade">Cidade</label>
-					<input type="text" name="cidade" placeholder="Cidade">
+					<label for="cidade">Cidade *</label>
+					<input type="text" name="cidade" placeholder="Cidade" required>
 				</div>
 				<div class="three wide column">
-					<label for="bairro">Bairro</label>
-					<input type="text" name="bairro" placeholder="Bairro">
+					<label for="bairro">Bairro *</label>
+					<input type="text" name="bairro" placeholder="Bairro" required>
 				</div>
 				<div class="three wide column">
-					<label for="estado">Estado</label>
-					<input type="text" name="estado" placeholder="Estado">
+					<label for="estado">Estado *</label>
+					<input type="text" name="estado" placeholder="Estado" required>
 				</div>
 				<div class="three wide column">
 					<label for="cep">CEP</label>
-					<input type="text" name="cep" placeholder="Cep">
+					<input type="text" name="cep" id="cep" placeholder="Cep">
 				</div>
 				<div class="sixteen wide column">
 					<input type="submit" class="ui green button" value="Cadastrar">
 					<input type="reset" class="ui blue button" value="Limpar Campos">
+					<input type="hidden" value="add_cliente" name="tipo_registro">
 				</div>
 			</div>
 		</form>

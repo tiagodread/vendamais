@@ -30,11 +30,8 @@ $('document').ready(function(){
   $("#Celular").mask("(99) 99999-9999");
   $("#Telefone").mask("(99) 9999-9999");
   $("#CPF").mask("999.999.999-99");
-  $("#RG").mask("99.999.999-9");
-
-
-
-//$('form-add-cliente').form('clear')
+  $("#RG").mask("99.999.999-*");
+  $("#cep").mask("99999-999");
 
 $(document).ready(function(){
   $('.menu .item').tab();
