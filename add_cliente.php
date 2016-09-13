@@ -3,7 +3,6 @@ include('inc/header.php');
 session_start();
 if (isset($_SESSION['validacao'])) {
 	?>
-	<h4>Gerenciar Clientes</h4>
 	<div class="ui top attached tabular menu">
 		<a class="item active" data-tab="cadastrar">Cadastrar</a>
 		<a class="item" data-tab="consultar">Consultar</a>
@@ -83,13 +82,49 @@ if (isset($_SESSION['validacao'])) {
 					<input type="text" name="bairro" placeholder="Bairro" required>
 				</div>
 				<div class="three wide column">
-					<label for="estado">Estado *</label>
-					<input type="text" name="estado" placeholder="Estado" required>
+					<div class="field">
+						<label for="estado">Estado *</label>
+						<div class="ui search selection dropdown">
+							<input type="hidden" name="genero" required>
+							<i class="dropdown icon"></i>
+							<div class="default text">Selecione</div>
+							<div class="menu">
+								<div class="item" data-value="ac">Acre</div>
+								<div class="item" data-value="al">Alagoas</div>
+								<div class="item" data-value="ap">Amapá</div>
+								<div class="item" data-value="am">Amazonas</div>
+								<div class="item" data-value="ba">Bahia</div>
+								<div class="item" data-value="ce">Ceará</div>
+								<div class="item" data-value="df">Distrito Federal</div>
+								<div class="item" data-value="es">Espírito Santo</div>
+								<div class="item" data-value="go">Goiás</div>
+								<div class="item" data-value="ma">Maranhão</div>
+								<div class="item" data-value="mt">Mato Grosso</div>
+								<div class="item" data-value="ms">Mato Grosso do Sul</div>
+								<div class="item" data-value="mg">Minas Gerais</div>
+								<div class="item" data-value="pa">Pará</div>
+								<div class="item" data-value="pb">Paraíba</div>
+								<div class="item" data-value="pr">Paraná</div>
+								<div class="item" data-value="pe">Pernambuco</div>
+								<div class="item" data-value="pi">Piauí</div>
+								<div class="item" data-value="rj">Rio de Janeiro</div>
+								<div class="item" data-value="rn">Rio Grande do Norte</div>
+								<div class="item" data-value="rs">Rio Grande do Sul</div>
+								<div class="item" data-value="ro">Rondônia</div>
+								<div class="item" data-value="rr">Roraima</div>
+								<div class="item" data-value="sc">Santa Catarina</div>
+								<div class="item" data-value="sp">São Paulo</div>
+								<div class="item" data-value="se">Sergipe</div>
+								<div class="item" data-value="to">Tocantins</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="three wide column">
 					<label for="cep">CEP</label>
 					<input type="text" name="cep" id="cep" placeholder="Cep">
 				</div>
+				<h4>* Campos Obrigatórios</h4>
 				<div class="sixteen wide column">
 					<input type="submit" class="ui green button" value="Cadastrar">
 					<input type="reset" class="ui blue button" value="Limpar Campos">
