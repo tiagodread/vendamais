@@ -27,17 +27,23 @@ $('document').ready(function(){
   $('.tabular .attached')
   .tab();
 
+  $('button.refresh').click(function(){
+   $('.item .consultar')
+   .tab();
+ });
+
   $("#Celular").mask("(99) 99999-9999");
   $("#Telefone").mask("(99) 9999-9999");
   $("#CPF").mask("999.999.999-99");
   $("#cep").mask("99999-999");
 
-$(document).ready(function(){
-  $('.menu .item').tab();
-});
+  $(document).ready(function(){
+    $('.menu .item').tab();
+  });
 
-$('#teste').click(function(){
-  $('.ui.sidebar')
-  .sidebar('toggle');
-});
+  $('#teste').click(function(){
+    $('.ui.sidebar')
+    .sidebar('toggle');
+  });
+
 });

@@ -36,6 +36,18 @@ if (isset($_SESSION['validacao'])) {
 			'$estado','$cep','$celular','$telefone','$email')";
 
 mysql_query($sql);
+
+$sql = "INSERT INTO clientes (nome, cpf, rg, sexo, nasc, profissao, endereco, cidade, bairro, estado, cep, celular,
+			telefone, email) VALUES ('$nome','$cpf','$rg','$sexo','$nasc','$profissao','$endereco','$cidade','$bairro',
+			'$estado','$cep','$celular','$telefone','$email')";
+
+mysql_query($sql);
+
+$sql = "INSERT INTO clientes (nome, cpf, rg, sexo, nasc, profissao, endereco, cidade, bairro, estado, cep, celular,
+			telefone, email) VALUES ('$nome','$cpf','$rg','$sexo','$nasc','$profissao','$endereco','$cidade','$bairro',
+			'$estado','$cep','$celular','$telefone','$email')";
+
+mysql_query($sql);
 /*
 echo $nome . "<br>" . $cpf . "<br>" . $rg . "<br>" . $nasc . "<br>" . $profissao . "<br>" . $endereco . "<br>" . $cidade . "<br>" . $bairro . "<br>" . $estado . "<br>" .
 $sexo . "<br>" . $telefone . "<br>" . $celular . "<br>" . $email . "<br>" . $cep;

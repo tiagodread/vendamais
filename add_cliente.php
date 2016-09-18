@@ -1,5 +1,7 @@
 <?php
 include('inc/header.php');
+require_once('inc/functions.php');
+
 session_start();
 if (isset($_SESSION['validacao'])) {
 	?>
@@ -7,7 +9,6 @@ if (isset($_SESSION['validacao'])) {
 		<a class="item active" data-tab="cadastrar">Cadastrar</a>
 		<a class="item" data-tab="consultar">Consultar</a>
 	</div>
-
 	<!-- Inicio da primeira tab cadastro-->
 	<div class="ui bottom attached tab segment active" data-tab="cadastrar">
 		<form class="ui form" id="form-add-cliente" method="post" action="gravar_registro.php">
@@ -85,7 +86,7 @@ if (isset($_SESSION['validacao'])) {
 					<div class="field">
 						<label for="estado">Estado *</label>
 						<div class="ui search selection dropdown">
-							<input type="hidden" name="genero" required>
+							<input type="hidden" name="estado" required>
 							<i class="dropdown icon"></i>
 							<div class="default text">Selecione</div>
 							<div class="menu">
@@ -137,12 +138,119 @@ if (isset($_SESSION['validacao'])) {
 
 	<!-- Inicio da segunda tab e consulta-->
 	<div class="ui bottom attached tab segment" data-tab="consultar">
-
+		<h4 class="ui dividing header">Consultar Cliente</h4>
+		<div class="ui grid">
+			<div class="eight wide column">
+				<form class="ui form" id="form-add-cliente" method="post" action="gravar_registro.php">
+					<div class="field">
+						<div class="ui search">
+							<div class="ui icon input">
+								<input class="prompt" type="text" id="nomeCliente" placeholder="Procurar Cliente">
+								<i class="search icon"></i>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="two wide column">
+				<button class="ui basic button" onclick="location.href='add_cliente.php';"><i class="refresh icon"></i>Atualizar</button>
+			</div>
+		</div>
 	</div>
-	<!-- Fim da segunda tab e consulta-->
+</div>
+
+</div>
+
+<h4 class="ui dividing header">Resultados</h4>
+<table class="ui very basic collapsing celled table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Foto</th>
+			<th>Nome</th>
+			<th>CPF</th>
+			<th>Cidade</th>
+			<th>Celular</th>
+			<th>Telefone</th>
+			<th>Email</th>
+		</tr>
+	</thead>
+	<script>
+		document.getElementById("nomeCliente").addEventListener("keyup", buscar);
+
+		function buscar()
+		{
+			var nome = $("#nomeCliente").val();
+			alert(nome);
+			var page = "inc/functions.php";
+			$.ajax
+			({
+				type: 'POST',
+				dataType: 'html',
+				url: page,
+				beforeSend: function () {
+					$("#dados").html("Carregando...");
+				},
+				data: {nome: nome},
+				success: function (msg)
+				{	
+					alert(msg);
+					$("#dados").html(msg);
+				}
+			});
+		}
+	</script>
+
 
 
 	<?php
+	//$r = getTodosClientes();
+	$r = getClienteNome();
+	$qtd = mysql_num_rows($r);
+
+	while($row = mysql_fetch_row($r)):			
+		?>
+	<tbody>
+		<tr>
+			<td>
+				<?php echo $row[0];?>
+			</td>
+			<td>
+				<h5 class="ui image header">
+					<img src="img/icon.png" class="ui mini rounded image">
+				</div>
+			</h5></td>
+			<td>
+				<?php echo $row[1];?>
+			</td>
+			<td>
+				<?php echo $row[2];?>
+			</td>
+			<td>
+				<?php echo $row[8];?>
+			</td>
+			<td>
+				<?php echo $row[12];?>
+			</td>
+			<td>
+				<?php echo $row[13];?>
+			</td>
+			<td>
+				<?php echo $row[14];?>
+			</td>
+		</tr>
+	</tbody>
+<?php endwhile;?>
+</table>
+
+
+
+
+</div>
+<!-- Fim da segunda tab e consulta-->
+
+
+<?php
 }else
 {
 	echo "<script>
